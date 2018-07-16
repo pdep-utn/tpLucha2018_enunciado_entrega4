@@ -40,7 +40,7 @@ El wko _arena_ nos permitirá parametrizar algunas cuestiones (más abajo las de
 
 El tablero inicial debe visualizarse de la siguiente manera:
 
-![image](images/tableroOriginal.png)
+![image](images/tableroOriginalChico.png)
 
 En él aparece
 
