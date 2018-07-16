@@ -170,3 +170,8 @@ object rivales {
 }
 ```
 
+Este código **no es obligatorio utilizarlo en el TP**, pero sí en caso de elegir otra opción debe hacer una comparación de su solución con la que se provee aquí (no vale decir "no lo entendí y fui por mi opción").
+
+Vemos cómo sigue la demo una vez que el Diego batió a sampaoli:
+
+![image](images/finalDemo.gif)
