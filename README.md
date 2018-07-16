@@ -44,12 +44,34 @@ El tablero inicial debe visualizarse de la siguiente manera:
 
 En él aparece
 
-![image](assets/maradona.png)
-  elDiego, nuestro personaje principal (lo que en Wollok Game se denomina _visual character_) 
+- elDiego, nuestro personaje principal (lo que en Wollok Game se denomina _visual character_)
+- un ícono que representan 10 monedas de oro
+- una serie de artefactos: espadas, armaduras y máscaras
+- nuestro primer rival del Diego, el enigmático dt _sampaoli_
 
-![image](assets/bitcoin.png)
-  un conjunto de monedas de oro 
+Todas las imágenes pueden obtenerse en el [directorio assets de este repositorio](assets/), cada grupo es libre de modificar las imágenes por otras según lo considere conveniente.
+
+A continuación describiremos el comportamiento esperado dentro del juego.
+
+### Configuración del juego
+
+- el fondo del juego se define por el [archivo soccerWallPaper.jpg](assets/soccerWallPaper.jpg). 
+- el título debe decir "Hechiceria" o algo similar
+- el tamaño de la pantalla debe ser de 25 x 15 según lo configura el wko _arena_
+
+### Personaje principal: elDiego
+
+![image](assets/maradona.png)
+
+El Diego es el personaje principal del juego y como tal tiene caracter visual, pero además se asocia con un personaje (el modelo que construiste en las tres entregas anteriores). Ese modelo comienza con 20 monedas de oro en su haber, no tiene artefactos y la información sobre el hechizo preferido es irrelevante para el juego.
+
+Los movimientos del Diego no necesitan ser programados ya que Wollok Game los provee por ser el personaje principal, pero sí debemos tener en cuenta el siguiente comportamiento:
+
+- la imagen por defecto se obtiene del [archivo maradona.png en assets](assets/maradona.png) si la habilidad de lucha es menor o igual a 5, cuando la sobrepasa obtiene el efecto _wakanda forever_ [representado por el archivo maradona2.png](assets/maradona2.png)
 
 
 ### Adquiriendo monedas
+
+
+![image](assets/bitcoin.png)
 
