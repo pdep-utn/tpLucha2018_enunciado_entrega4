@@ -174,4 +174,4 @@ Este código **no es obligatorio utilizarlo en el TP**, pero sí en caso de eleg
 
 Vemos cómo sigue la demo una vez que el Diego batió a sampaoli:
 
-![image](images/finalDemo.gif)
+![image](images/finalDemo2.gif)
