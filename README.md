@@ -44,8 +44,11 @@ El tablero inicial debe visualizarse de la siguiente manera:
 
 En él aparece
 
-- elDiego, nuestro personaje principal (lo que en Wollok Game se denomina _visual character_) ![image](assets/maradona.png)
-- un conjunto de monedas de oro ![image](assets/bitcoin.png)
+![image](assets/maradona.png)
+  elDiego, nuestro personaje principal (lo que en Wollok Game se denomina _visual character_) 
+
+![image](assets/bitcoin.png)
+  un conjunto de monedas de oro 
 
 
 ### Adquiriendo monedas
