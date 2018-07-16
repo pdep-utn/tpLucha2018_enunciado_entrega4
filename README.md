@@ -101,9 +101,13 @@ Deben crearse una barra de herramientas de artefactos "comprables", en nuestro e
 
 - la imagen asociada depende del artefacto, quizás sea útil inyectarla en el constructor (pasándole como parámetro la imagen que queremos utilizar). Se proveen las siguientes imágenes: [assets/espada.png](assets/espada.png), [assets/armadura2.png](assets/armadura2.png) y [assets/mascara.png](assets/mascara.png)
 
-Cuando alguno de estos artefactos colisione con el Diego, es porque nuestro personaje lo estará queriendo comprar. En ese caso conviene aprovechar el método comprar(cosa) en el wko _arena_, que lo delega en el Diego:
+Cuando alguno de estos artefactos colisione con el Diego, es porque nuestro personaje lo estará queriendo comprar. En ese caso conviene aprovechar el método comprar(cosa) en el wko _arena_, que lo delega en el Diego y sigue estos pasos:
 
-- el Diego, que es un personaje visual, le delega la responsabilidad al personaje modelo. 
+- el Diego, que es un personaje visual, le delega la responsabilidad al personaje "posta" (que sabe comprar un artefacto con las monedas que tiene). 
 - si tiene suficientes monedas, nos informa que se lleva dicho artefacto (**tip:** delegar la forma de mostrarse como string a cada arma) y eliminamos del juego al artefacto (ya no estará más disponible)
 - si no tiene suficientes monedas, debe volver a la posición (0, 0) e informar el mensaje de error que recibe del modelo. **Tip:** para volver a la posición original del juego (`game.origin()`) hay que eliminar el personaje del juego y volverlo a crear.
+
+![image](images/artefactos.gif)
+
+> En este método vemos varias cuestiones: 1) que hay una separación entre modelo y vista (mientras la vista se ocupa de la presentación gráfica al usuario, el modelo es el encargado de respetar las reglas del negocio, en nuestro caso que el personaje compre por lo que el artefacto vale si tiene suficientes monedas), 2) que hay un acoplamiento justo entre ambos componentes (de hecho el modelo no conoce a la vista pero participa en la compra de un artefacto), 3) cómo los errores que tira el negocio los atrapa la _vista_
 
