@@ -16,6 +16,14 @@ Se requiere que todos los personajes no controlados sepan pelear contra cualquie
 	}
 ```
 
+Además tendremos al wko _sampaoli_, definido de la siguiente manera:
+
+```javascript
+object sampaoli inherits PersonajeNoControlado {
+	override method pelearContra(personaje) = personaje.habilidadLucha() > 5
+}
+```
+
 ### Tablero de juego inicial
 
 Tendremos un tablero del juego de 25 x 15 celdas, pero el tamaño podría variar. Aconsejamos para ello definir el siguiente objeto visual:
@@ -110,4 +118,53 @@ Cuando alguno de estos artefactos colisione con el Diego, es porque nuestro pers
 ![image](images/artefactos.gif)
 
 > En este método vemos varias cuestiones: 1) que hay una separación entre modelo y vista (mientras la vista se ocupa de la presentación gráfica al usuario, el modelo es el encargado de respetar las reglas del negocio, en nuestro caso que el personaje compre por lo que el artefacto vale si tiene suficientes monedas), 2) que hay un acoplamiento justo entre ambos componentes (de hecho el modelo no conoce a la vista pero participa en la compra de un artefacto), 3) cómo los errores que tira el negocio los atrapa la _vista_
+
+### Rivales, no enemigos
+
+La parte más compleja del Trabajo práctico es el rival, un elemento visual que debe ubicarse 
+
+- x = 0
+- y = un valor al azar entre 2 y el ancho de la pantalla - 3
+
+El rival conoce a un personaje rival, que irá cambiando conforme el Diego vaya ganando sus contiendas. El personaje rival es el que define 
+
+- la imagen que se mostrará en el tablero,
+- su "gracia" o frase de cabecera cuando le gana a "el Diego"
+- y el personaje no controlado con el que trabaja de fondo
+
+Cuando comienza el juego aparece sampaoli en el tablero, y el Diego solo le puede ganar si su habilidad es mayor a cinco (por lo que está obligado a comprar algún artefacto):
+
+![image](image/sampaoli.gif)
+
+El comportamiento del rival cuando colisiona contra el Diego es el siguiente:
+
+- delegamos el resultado de la pelea al rival (un personaje no controlado), que sabe devolver un booleano
+- si ganó (el booleano es true), el Diego lanza un estruendoso grito de victoria, y el rival cambia a su siguiente personaje (en este caso, el chila)
+- si por el contrario el Diego pierde, el rival "hará su gracia" diciendo la frase de cabecera, y el rival se reposicionará en el mismo x = 0 y un _y_ diferente al actual (para no quedar en _loop_). 
+
+**Debe delegar las responsabilidades a los objetos visuales y a los de negocio**.
+
+**Tip**: se provee una posible implementación para la selección de rivales, falta aun el código del Rival que es un objeto visual importante para el juego.
+
+```javascript
+class PersonajeRival {
+	var property personaje
+	var property gracia
+	var property imagen
+}
+
+object rivales {
+	var actual = 0
+	const property lista = [
+		new PersonajeRival(personaje = sampaoli, gracia = "No necesito planificación para ganarte", imagen = "sampaoli.png"),
+		new PersonajeRival(personaje = new PersonajeNoControlado(dificultad = moderado), gracia = "Tu no has ganado nada!", imagen = "chilavert.png"),
+		new PersonajeRival(personaje = new PersonajeNoControlado(dificultad = dificil), gracia = "Eu sou o mais grande do mundo!", imagen = "pele.png")
+	]
+	
+	method rivalActual() = ...
+	method siguiente() {
+        ...
+	}
+}
+```
 
