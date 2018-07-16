@@ -175,3 +175,5 @@ Este código **no es obligatorio utilizarlo en el TP**, pero sí en caso de eleg
 Vemos cómo sigue la demo una vez que el Diego batió a sampaoli:
 
 ![image](images/finalDemo2.gif)
+
+Una vez superado a Pelé, se puede volver a Sampaoli o bien quedarse en Pelé (es decisión del alumno)
