@@ -134,7 +134,7 @@ El rival conoce a un personaje rival, que irá cambiando conforme el Diego vaya 
 
 Cuando comienza el juego aparece sampaoli en el tablero, y el Diego solo le puede ganar si su habilidad es mayor a cinco (por lo que está obligado a comprar algún artefacto):
 
-![image](image/sampaoli.gif)
+![image](images/sampaoli.gif)
 
 El comportamiento del rival cuando colisiona contra el Diego es el siguiente:
 
