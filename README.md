@@ -82,6 +82,8 @@ Los movimientos del Diego no necesitan ser programados ya que Wollok Game los pr
 ![images](images/infoDiego.gif)
 
 
+**Nota**: queda fuera de alcance del TP evitar que el Diego se salga del tablero, cuando uno lo hace volver aparece nuevamente (como en la realidad).
+
 ### Adquiriendo monedas
 
 ![image](assets/bitcoin.png)
