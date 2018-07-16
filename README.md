@@ -69,9 +69,12 @@ Los movimientos del Diego no necesitan ser programados ya que Wollok Game los pr
 
 - la imagen por defecto se obtiene del [archivo maradona.png en assets](assets/maradona.png) si la habilidad de lucha es menor o igual a 5, cuando la sobrepasa obtiene el efecto _wakanda forever_ [representado por el archivo maradona2.png](assets/maradona2.png)
 
+- Cada vez que se presione la tecla I, debe decirnos la cantidad de monedas que tiene, la cantidad de artefactos que posee y su habilidad de lucha
+
+![images](images/infoDiego.gif)
+
 
 ### Adquiriendo monedas
-
 
 ![image](assets/bitcoin.png)
 
