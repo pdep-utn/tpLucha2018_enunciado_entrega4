@@ -78,3 +78,32 @@ Los movimientos del Diego no necesitan ser programados ya que Wollok Game los pr
 
 ![image](assets/bitcoin.png)
 
+Dado que inicialmente el Diego tiene solo 20 monedas, tiene la oportunidad de incrementar sus arcas adquiriendo nuevas monedas que están dispersas por el tablero. La moneda
+
+- tiene como ícono fijo el [archivo bitcoin.png en assets](assets/bitcoin.png)
+- la posición en la que se ubica es al azar: el x es un número entre 2 y el ancho de la pantalla - 2, el y es un número entre 2 y el alto de la pantalla (definidos en el wko arena)
+
+Cuando el Diego atrapa una moneda (evento de colisión entre ambos objetos visuales),
+
+- el Diego cumple un objetivo (gana 10 monedas)
+- nos informa cuántas monedas tiene ahora
+- la moneda se debe reposicionar en el tablero en cualquier nuevo lugar considerando los mismos límites que en la inicialización (entre 2 y el ancho de la pantalla - 2, entre 2 y el alto de la pantalla - 2). **No debe repetir código con la inicialización**.
+
+![image](images/monedas.gif)
+
+### Artefactos
+
+![image](assets/espada.png) ![image](assets/armadura2.png) ![image](assets/mascara.png)
+
+Deben crearse una barra de herramientas de artefactos "comprables", en nuestro ejemplo creamos seis. Cada uno de estos son **artefactos visuales**, que se asocian a un posible artefacto como modelo.
+
+- la posición que ocupan es x = 0, y = el alto de la pantalla - 5 y a partir del siguiente se resta uno. Por ejemplo, la primera armadura se ubica en la posición (0, 10), la espada en la posición (0, 9), la máscara en la (0, 8) y así sucesivamente
+
+- la imagen asociada depende del artefacto, quizás sea útil inyectarla en el constructor (pasándole como parámetro la imagen que queremos utilizar). Se proveen las siguientes imágenes: [assets/espada.png](assets/espada.png), [assets/armadura2.png](assets/armadura2.png) y [assets/mascara.png](assets/mascara.png)
+
+Cuando alguno de estos artefactos colisione con el Diego, es porque nuestro personaje lo estará queriendo comprar. En ese caso conviene aprovechar el método comprar(cosa) en el wko _arena_, que lo delega en el Diego:
+
+- el Diego, que es un personaje visual, le delega la responsabilidad al personaje modelo. 
+- si tiene suficientes monedas, nos informa que se lleva dicho artefacto (**tip:** delegar la forma de mostrarse como string a cada arma) y eliminamos del juego al artefacto (ya no estará más disponible)
+- si no tiene suficientes monedas, debe volver a la posición (0, 0) e informar el mensaje de error que recibe del modelo. **Tip:** para volver a la posición original del juego (`game.origin()`) hay que eliminar el personaje del juego y volverlo a crear.
+
