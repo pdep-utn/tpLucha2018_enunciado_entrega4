@@ -16,7 +16,7 @@ Se requiere que todos los personajes no controlados sepan pelear contra cualquie
 	}
 ```
 
-### Tablero de juego
+### Tablero de juego inicial
 
 Tendremos un tablero del juego de 25 x 15 celdas, pero el tamaño podría variar. Aconsejamos para ello definir el siguiente objeto visual:
 
@@ -35,4 +35,18 @@ object arena {
 	method comerciante() = new Comerciante(tipoCobro = new Independiente(10))
 }
 ```
+
+El wko _arena_ nos permitirá parametrizar algunas cuestiones (más abajo las desarrollaremos).
+
+El tablero inicial debe visualizarse de la siguiente manera:
+
+![image](images/tableroOriginal.png)
+
+En él aparece
+
+- elDiego, nuestro personaje principal (lo que en Wollok Game se denomina _visual character_) ![image](assets/maradona.png)
+- un conjunto de monedas de oro ![image](assets/bitcoin.png)
+
+
+### Adquiriendo monedas
 
